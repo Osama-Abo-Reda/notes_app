@@ -24,11 +24,13 @@ class NotesItem extends StatelessWidget {
         children: [
           ListTile(
             title: const Text(
-              'Flutter Tips',
+              'Title Note',
+              maxLines: 1,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 26.0,
                 fontWeight: FontWeight.bold,
+                letterSpacing: 0.8,
               ),
             ),
             subtitle: Padding(
@@ -44,6 +46,8 @@ class NotesItem extends StatelessWidget {
                     0.5,
                   ),
                   fontSize: 18.0,
+                  letterSpacing: 0.5,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),
@@ -64,7 +68,7 @@ class NotesItem extends StatelessWidget {
               'May 21, 2023',
               style: TextStyle(
                 color: Colors.black.withOpacity(
-                  0.4,
+                  0.5,
                 ),
                 fontSize: 16.0,
               ),
