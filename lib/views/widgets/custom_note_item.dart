@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NotesItem extends StatelessWidget {
-  const NotesItem({super.key});
+  const NotesItem({super.key, required this.note});
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class NotesItem extends StatelessWidget {
           left: 12.0,
         ),
         decoration: BoxDecoration(
-          color: Colors.yellow,
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(
             16.0,
           ),
@@ -31,10 +33,10 @@ class NotesItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Title Note',
+              title: Text(
+                note.title,
                 maxLines: 1,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 26.0,
                   fontWeight: FontWeight.bold,
@@ -47,7 +49,7 @@ class NotesItem extends StatelessWidget {
                   bottom: 16.0,
                 ),
                 child: Text(
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                  note.subTitle,
                   maxLines: 2,
                   style: TextStyle(
                     color: Colors.black.withOpacity(
@@ -73,7 +75,7 @@ class NotesItem extends StatelessWidget {
                 right: 24.0,
               ),
               child: Text(
-                'May 21, 2023',
+                note.date,
                 style: TextStyle(
                   color: Colors.black.withOpacity(
                     0.5,

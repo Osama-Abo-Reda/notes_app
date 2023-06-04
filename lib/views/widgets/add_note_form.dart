@@ -18,6 +18,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTilte;
+  DateTime dateNow = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -53,7 +54,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var noteModel = NoteModel(
                       title!,
                       subTilte!,
-                      DateTime.now().toString(),
+                      DateTime.now().toString().substring(0, 10),
                       Colors.blue.value,
                     );
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
